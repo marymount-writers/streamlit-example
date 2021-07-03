@@ -17,8 +17,8 @@ def cacherando():
 
 def display_app_header(main_txt,sub_txt,is_sidebar = False):
     html_temp = f"""
-    <h2 style = "color:black; text_align:center;"> {main_txt} </h2>
-    <p style = "color:black; text_align:center;"> {sub_txt} </p>
+    <h1 style = "color:black; text_align:left;"> {main_txt} </h2>
+    <h2 style = "color:black; text_align:left;"> {sub_txt} </p>
     </div>
     """
     if is_sidebar:
