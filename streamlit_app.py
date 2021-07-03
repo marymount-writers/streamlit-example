@@ -38,7 +38,8 @@ def main():
     main_txt = """Calibre"""
     sub_txt = "Competitor Analysis"
     display_app_header(main_txt,sub_txt,is_sidebar = False)
-    session_state.domain = st.text_input("Your Website Domain: ", value='').lower()
+    session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
+    session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
     
     display_side_panel_header("Configuration")
     session_state.nsamples = st.sidebar.slider("Number of Competitors to Analyse: ", 1, v_nsamples, 1)
