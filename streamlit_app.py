@@ -3,6 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import os
 
 def get_session_state(rando):
     session_state = SessionState.get(random_number=random.random(), nsamples='')
