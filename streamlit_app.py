@@ -38,7 +38,7 @@ def generate_competitors(domain,industry,nsamples):
     dataframe = pd.DataFrame(list(zip(competitors[:nsamples],
                                       np.random.randn(nsamples),
                                       [', '.join(np.random.choice(channels,3)) for i in range(nsamples)],
-                                      [', '.join(np.random.choice(channels,3)) for i in range(nsamples)])),
+                                      [', '.join(np.random.choice(keywords,3)) for i in range(nsamples)])),
                              columns=col)
     return dataframe
 
