@@ -31,7 +31,11 @@ def display_side_panel_header(txt):
     st.sidebar.markdown(f'## {txt}')
     
 def generate_competitors(domain,industry,nsamples):
-    dataframe = np.random.randn(nsamples, 4)
+    col = ['Competitor','Similarity','Channels','Target Keywords']
+    competitors = ['Union Square','Chernobyl Industries','Neverland','Crocodile Inc.','Yellow Tail','Lorem Ipsum','Elid.Net','Hannibal L.','Teriyaki','BKT Holdings']
+    channels = []
+    keywords = []
+    dataframe = pd.DataFrame(list(zip(competitors[:nsamples],np.random.randn(nsamples))),columns=col)
     return dataframe
 
 def main():
