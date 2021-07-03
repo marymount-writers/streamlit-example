@@ -37,8 +37,8 @@ def generate_competitors(domain,industry,nsamples):
     keywords = ['Content Marketing','Copywriting','SEO','SEM','Marketing ROI','Marketing Agency']
     dataframe = pd.DataFrame(list(zip(competitors[:nsamples],
                                       np.random.randn(nsamples),
-                                      [', '.join(np.random.choice(channels,3)) for i in range(nsamples)],
-                                      [', '.join(np.random.choice(keywords,3)) for i in range(nsamples)])),
+                                      [', '.join(np.random.choice(channels,3,replace=False)) for i in range(nsamples)],
+                                      [', '.join(np.random.choice(keywords,3,replace=False)) for i in range(nsamples)])),
                              columns=col)
     return dataframe
 
