@@ -3,12 +3,17 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import random
 import os
 import SessionState
 
 def get_session_state(rando):
     session_state = SessionState.get(random_number=random.random(), nsamples='')
     return session_state
+
+def cacherando():
+    rando = random_number=random.random()
+    return rando
 
 def display_app_header(main_txt,sub_txt,is_sidebar = False):
     html_temp = f"""
@@ -26,6 +31,7 @@ def display_side_panel_header(txt):
 
 def main():
     st.set_page_config(page_title='Calibre') #layout='wide', initial_sidebar_state='auto'
+    rando = cacherando()
     session_state = get_session_state(rando)
     v_nsamples = int(os.getenv('V_NSAMPLES', 10)) # Number of competitors to generate
     sep = '<|endoftext|>'
