@@ -39,13 +39,16 @@ def main():
     main_txt = """Calibre"""
     sub_txt = "Competitor Analysis"
     display_app_header(main_txt,sub_txt,is_sidebar = False)
-    session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
-    session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
-    dataframe = np.random.randn(10, 20)
-    st.dataframe(dataframe)
     
+    ### SIDEBAR CONTENT ###
     display_side_panel_header("Configuration")
     session_state.nsamples = st.sidebar.slider("Number of Competitors to Analyse: ", 1, v_nsamples, 1)
     
+    ### MAIN CONTENT ###
+    session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
+    session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
+    dataframe = np.random.randn(session_state.nsamples, 4)
+    st.dataframe(dataframe)
+       
 if __name__ == "__main__":
     main()
