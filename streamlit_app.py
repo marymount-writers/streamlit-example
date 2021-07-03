@@ -26,6 +26,7 @@ def display_side_panel_header(txt):
 
 def main():
     st.set_page_config(page_title='Calibre') #layout='wide', initial_sidebar_state='auto'
+    session_state = get_session_state(rando)
     v_nsamples = int(os.getenv('V_NSAMPLES', 10)) # Number of competitors to generate
     sep = '<|endoftext|>'
     main_txt = """Calibre"""
