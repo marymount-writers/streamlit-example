@@ -4,6 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 import os
+import SessionState
 
 def get_session_state(rando):
     session_state = SessionState.get(random_number=random.random(), nsamples='')
@@ -25,11 +26,13 @@ def display_side_panel_header(txt):
 
 def main():
     st.set_page_config(page_title='Calibre') #layout='wide', initial_sidebar_state='auto'
-    v_nsamples = int(os.getenv('V_NSAMPLES', 3)) # Number of competitors to generate
+    v_nsamples = int(os.getenv('V_NSAMPLES', 10)) # Number of competitors to generate
     sep = '<|endoftext|>'
     main_txt = """Calibre"""
     sub_txt = "Competitor Analysis"
     display_app_header(main_txt,sub_txt,is_sidebar = False)
+    session_state.domain = st.text_input("Your Website Domain: ", value='').lower()
+    
     display_side_panel_header("Configuration")
     session_state.nsamples = st.sidebar.slider("Number of Competitors to Analyse: ", 1, v_nsamples, 1)
     
