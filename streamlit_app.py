@@ -29,6 +29,10 @@ def display_app_header(main_txt,sub_txt,is_sidebar = False):
         
 def display_side_panel_header(txt):
     st.sidebar.markdown(f'## {txt}')
+    
+def generate_competitors(domain,industry,nsamples):
+    dataframe = np.random.randn(nsamples, 4)
+    return dataframe
 
 def main():
     st.set_page_config(page_title='Calibre') #layout='wide', initial_sidebar_state='auto'
@@ -47,8 +51,10 @@ def main():
     ### MAIN CONTENT ###
     session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
     session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
-    dataframe = np.random.randn(session_state.nsamples, 4)
-    st.dataframe(dataframe)
+    if st.button('Generate Competitor Analysis'):
+        session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
+        st.header('Your competitor(s):')
+        st.dataframe(session_state.generated)
        
 if __name__ == "__main__":
     main()
