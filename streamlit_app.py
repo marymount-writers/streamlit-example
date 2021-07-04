@@ -55,6 +55,8 @@ def main():
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Configuration")
     session_state.nsamples = st.sidebar.slider("Number of Competitors to Analyse: ", 1, v_nsamples, 1)
+    display_side_panel_header("Audience Profile")
+    session_state.nsamples = st.sidebar.slider("Audience Age Range: ", 16, 65, (26, 30))
     
     ### MAIN CONTENT ###
     session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
