@@ -88,7 +88,7 @@ def main():
 #                 session_state.analysis_running = False
 #                 st.experimental_rerun()
 
-        if session_state.analysis_running:
+        while session_state.analysis_running:
             st.header('Your competitors:')
             st.dataframe(session_state.generated)
             with st.form(key='content_brief'):
