@@ -97,6 +97,7 @@ def main():
                 submit_competitors = st.form_submit_button(label='Save Competitors')
                 if submit_competitors:
                     st.write('You have saved: {}'.format(competitors_selected))
+                    session_state.analysis_running = False
                     
     ### GENERATE CONTENT BRIEF ###
             if session_state.pages == 'Generate Content Brief':
