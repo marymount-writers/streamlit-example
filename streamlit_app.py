@@ -9,7 +9,7 @@ import os
 import SessionState
 
 def get_session_state(rando):
-    session_state = SessionState.get(random_number=random.random(), nsamples='', analysis_running=False)
+    session_state = SessionState.get(random_number=random.random(), nsamples='')
     return session_state
 
 def cacherando():
@@ -76,10 +76,7 @@ def main():
     session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
     
     if st.button('Generate Competitor Analysis'):
-        session_state.analysis_running = True
         session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
-     
-    if session_state.analysis_running:
         st.header('Your competitors:')
         st.dataframe(session_state.generated)
         session_state.competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", options=session_state.generated.iloc[:,0])
