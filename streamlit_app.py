@@ -83,6 +83,9 @@ def main():
         if st.button('Generate Competitor Analysis'):
             session_state.analysis_running = True
             session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
+            if st.button(label='Reset'):
+                session_state.analysis_running = False
+                st.experimental_rerun()
 
         if session_state.analysis_running:
             st.header('Your competitors:')
@@ -97,9 +100,6 @@ def main():
     ### GENERATE CONTENT BRIEF ###
     if session_state.pages == 'Generate Content Brief':
         st.text("Content Brief")
-#             if st.button(label='Reset'):
-#                 session_state.analysis_running = False
-#                 st.experimental_rerun()
        
 if __name__ == "__main__":
     main()
