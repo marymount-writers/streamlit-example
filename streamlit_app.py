@@ -85,7 +85,7 @@ def main():
     if session_state.pages == 'Generate Competitors':
         if st.button('Generate Competitor Analysis'):
             session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
-            competitors = session_state.generated
+            competitors = competitors.append(session_state.generated)
             st.header('Your competitors:')
             st.dataframe(session_state.generated)
 
