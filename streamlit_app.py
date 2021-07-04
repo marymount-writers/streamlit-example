@@ -85,6 +85,7 @@ def main():
         competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", options=session_state.generated.iloc[:,0])
 
         if st.button(label='Generate Content Brief'):
+            st.header('Your content brief:')
             data = np.random.randn(10, 2)
             chart = st.line_chart(data)
        
