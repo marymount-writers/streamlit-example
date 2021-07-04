@@ -44,6 +44,8 @@ def generate_competitors(domain,industry,nsamples):
                              columns=col)
     return dataframe
 
+competitors = []
+
 def main():
     st.set_page_config(page_title='Calibre') #layout='wide', initial_sidebar_state='auto'
     rando = cacherando()
@@ -87,11 +89,12 @@ def main():
         session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
         st.header('Your competitors:')
         st.dataframe(session_state.generated)
+        competitors = session_state.generated.iloc[:,0]
 #         competitor_df = competitor_df.append(st.session_state.generated)
 
 #         with st.form(key='content_brief'):
         competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", 
-                                             options=session_state.generated.iloc[:,0])
+                                             options=competitors)
         submit_competitors = st.button(label='Save Competitors')
         if submit_competitors:
             st.write('You have saved: {}'.format(competitors_selected))
