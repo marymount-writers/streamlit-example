@@ -82,15 +82,17 @@ def main():
         session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
     
     ### GENERATE COMPETITORS ###
+    competitor_df = pd.DataFrame(columns=['Competitor','Similarity','Channels','Target Keywords'])
     if session_state.pages == 'Generate Competitors':
 #         if st.button('Generate Competitor Analysis'):
         st.session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
         st.header('Your competitors:')
         st.dataframe(st.session_state.generated)
+        competitor_df = competitor_df.append(st.session_state.generated)
 
 #         with st.form(key='content_brief'):
         competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", 
-                                             options=st.session_state.generated.iloc[:,0])
+                                             options=competitor_df.iloc[:,0])
         submit_competitors = st.button(label='Save Competitors')
         if submit_competitors:
             st.write('You have saved: {}'.format(competitors_selected))
