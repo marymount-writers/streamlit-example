@@ -61,9 +61,7 @@ def main():
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Menu")
-    session_state.profile_age = st.sidebar.radio("User Profile")
-    session_state.competitor_page = st.sidebar.radio("Generate Competitors")
-    session_state.content_brief_page = st.sidebar.radio("Generate Content Brief")
+    session_state.pages = st.sidebar.radio("Navigate Calibre", options=['User Profile','Generate Competitors','Generate Content Brief'])
     display_side_panel_header("Configuration")
     session_state.nsamples = st.sidebar.slider("Number of Competitors to Analyse: ", 1, v_nsamples, 1)
     display_side_panel_header("Audience Profile")
