@@ -82,7 +82,6 @@ def main():
     
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Generate Competitors':
-        analysis_running = False
         if st.button('Generate Competitor Analysis'):
             analysis_running = True
             session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
