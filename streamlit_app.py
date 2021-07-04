@@ -69,7 +69,7 @@ def main():
     session_state.audience_awareness = st.sidebar.selectbox("Audience Awareness: ", options=awareness_stages)
     
     ### USER PROFILE ###
-    if session_state.pages = 'User Profile':
+    if session_state.pages == 'User Profile':
         with st.form(key='tone_profile'):
             st.markdown(f"""Your Preferred Writing Style""")
             styles = st.multiselect(label='Select the writing style(s) you would like to adopt: ', options=writing_styles)
@@ -81,7 +81,7 @@ def main():
     ### GENERATE COMPETITORS ###
     
     ### GENERATE CONTENT BRIEF ###
-    if session_state.pages = 'Generate Competitors':
+    if session_state.pages == 'Generate Competitors':
         if st.button('Generate Competitor Analysis'):
             session_state.analysis_running = True
             session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
