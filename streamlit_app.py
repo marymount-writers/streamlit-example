@@ -96,6 +96,7 @@ def main():
 
     ### GENERATE CONTENT BRIEF ###
     if session_state.pages == 'Generate Content Brief':
+        st.text("Content Brief")
 #             if st.button(label='Reset'):
 #                 session_state.analysis_running = False
 #                 st.experimental_rerun()
