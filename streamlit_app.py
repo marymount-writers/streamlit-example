@@ -10,7 +10,7 @@ import os
 import SessionState
 
 def get_session_state(rando):
-    session_state = SessionState.get(random_number=random.random(), nsamples='', analysis_running=False, generate_competitors=pd.DataFrame())
+    session_state = SessionState.get(random_number=random.random(), nsamples='', generate_competitors=pd.DataFrame())
     return session_state
 
 def cacherando():
@@ -83,7 +83,7 @@ def main():
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Generate Competitors':
         if st.button('Generate Competitor Analysis'):
-            session_state.analysis_running = True
+            analysis_running = True
             session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
             st.header('Your competitors:')
             st.dataframe(session_state.generated)
@@ -99,7 +99,7 @@ def main():
                 submit_competitors = st.form_submit_button(label='Save Competitors')
                 if submit_competitors:
                     st.write('You have saved: {}'.format(competitors_selected))
-                    session_state.analysis_running = False
+                    analysis_running = False
                     
     ### GENERATE CONTENT BRIEF ###
     if session_state.pages == 'Generate Content Brief':
