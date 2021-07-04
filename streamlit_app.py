@@ -53,10 +53,11 @@ def main():
     display_app_header(main_txt,sub_txt,is_sidebar = False)
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
-    
-    with st.form(key='my_form'):
-        text_input = st.text_input(label='Enter your name')
-        submit_button = st.form_submit_button(label='Submit')
+    writing_styles = ['As a leading product brand, JAVEN is a state-of-the-art rotator wing drone.',
+                     'As a leading drone brand, JAVEN is built on innovative rotator wing technology.',
+                     'The most innovative rotator wing technology underpins the success of JAVEN.',
+                     'With JAVEN rotator wings, you can lay back and watch the world burn.',
+                     'Innovative rotator wing technology is at the core of JAVEN.']
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Configuration")
@@ -66,6 +67,9 @@ def main():
     session_state.audience_awareness = st.sidebar.selectbox("Audience Awareness: ", options=awareness_stages)
     
     ### MAIN CONTENT ###
+    with st.form(key='tone_profile'):
+        styles = st.multiselect(label='Select the writing style(s) you would like to adopt: ', options=writing_styles)
+        submit_button = st.form_submit_button(label='Submit')
     session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
     session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
     if st.button('Generate Competitor Analysis'):
