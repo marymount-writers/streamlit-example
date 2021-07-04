@@ -51,12 +51,15 @@ def main():
     main_txt = """Calibre"""
     sub_txt = "Competitor Analysis"
     display_app_header(main_txt,sub_txt,is_sidebar = False)
+    awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
+                        'Considering purchase','Intending to purchase','Existing product user']
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Configuration")
     session_state.nsamples = st.sidebar.slider("Number of Competitors to Analyse: ", 1, v_nsamples, 1)
     display_side_panel_header("Audience Profile")
-    session_state.nsamples = st.sidebar.slider("Audience Age Range: ", 16, 65, (26, 30))
+    session_state.audience_age = st.sidebar.slider("Audience Age Range: ", 16, 65, (26, 30))
+    session_state.audience_awareness = st.sidebar.selectbox("Audience Awareness: ", options=awareness_stages)
     
     ### MAIN CONTENT ###
     session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
