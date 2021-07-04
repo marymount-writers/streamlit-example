@@ -91,8 +91,9 @@ def main():
                 data = np.random.randn(10, 2)
                 chart = st.line_chart(data)
                 
-        if st.button(label='Reset'):
-            st.experimental_rerun()
+    if st.button(label='Reset'):
+        session_state.analysis_running = False
+        st.experimental_rerun()
        
 if __name__ == "__main__":
     main()
