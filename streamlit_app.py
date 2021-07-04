@@ -95,11 +95,10 @@ def main():
                 submit_competitors = st.form_submit_button(label='Save Competitors')
                 if submit_competitors:
                     st.write('You have saved: {}'.format(competitors_selected))
-                    break
                     
     ### GENERATE CONTENT BRIEF ###
-    if session_state.pages == 'Generate Content Brief':
-        st.text("Content Brief")
+            if session_state.pages == 'Generate Content Brief':
+                st.text("Content Brief")
        
 if __name__ == "__main__":
     main()
