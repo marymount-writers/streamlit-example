@@ -81,7 +81,7 @@ def main():
         
         with st.form(key='competitors_seleted'):
             competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", options=session_state.generated.iloc[:,0])
-            st.form_submit_button(label='Generate Content Brief')
+            generate_content_brief = st.form_submit_button(label='Generate Content Brief')
        
 if __name__ == "__main__":
     main()
