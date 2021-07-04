@@ -85,11 +85,11 @@ def main():
     ### GENERATE COMPETITORS ###
 #     competitor_df = pd.DataFrame(columns=['Competitor','Similarity','Channels','Target Keywords'])
     if session_state.pages == 'Generate Competitors':
-#         if st.button('Generate Competitor Analysis'):
-        session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
-        st.header('Your competitors:')
-        st.dataframe(session_state.generated)
-        competitors = session_state.generated.iloc[:,0]
+        if st.button('Generate Competitor Analysis'):
+            session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
+            st.header('Your competitors:')
+            st.dataframe(session_state.generated)
+            competitors = session_state.generated.iloc[:,0]
 #         competitor_df = competitor_df.append(st.session_state.generated)
 
 #         with st.form(key='content_brief'):
