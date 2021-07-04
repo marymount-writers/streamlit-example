@@ -9,7 +9,7 @@ import os
 import SessionState
 
 def get_session_state(rando):
-    session_state = SessionState.get(random_number=random.random(), nsamples='')
+    session_state = SessionState.get(random_number=random.random(), nsamples='', analysis_running=False)
     return session_state
 
 def cacherando():
