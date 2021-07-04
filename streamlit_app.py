@@ -68,7 +68,7 @@ def main():
     
     ### MAIN CONTENT ###
     with st.form(key='tone_profile'):
-        st.markdown(f"""<p>Your Preferred Writing Style</p>""")
+        st.markdown(f"""Your Preferred Writing Style""")
         styles = st.multiselect(label='Select the writing style(s) you would like to adopt: ', options=writing_styles)
         submit_button = st.form_submit_button(label='Submit')
     session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
