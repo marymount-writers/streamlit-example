@@ -44,8 +44,6 @@ def generate_competitors(domain,industry,nsamples):
                              columns=col)
     return dataframe
 
-competitors = []
-
 def main():
     st.set_page_config(page_title='Calibre') #layout='wide', initial_sidebar_state='auto'
     rando = cacherando()
