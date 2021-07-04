@@ -58,6 +58,7 @@ def main():
                      'The most innovative rotator wing technology underpins the success of JAVEN.',
                      'With JAVEN rotator wings, you can lay back and watch the world burn.',
                      'Innovative rotator wing technology is at the core of JAVEN.']
+    competitors_df = pd.DataFrame()
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Menu")
@@ -84,7 +85,6 @@ def main():
             session_state.analysis_running = True
             session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
             competitors_df = session_state.generated
-            return competitors_df
 #             if st.button(label='Reset'):
 #                 session_state.analysis_running = False
 #                 st.experimental_rerun()
