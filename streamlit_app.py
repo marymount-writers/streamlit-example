@@ -83,16 +83,10 @@ def main():
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Generate Competitors':
         if st.button('Generate Competitor Analysis'):
-            analysis_running = True
             session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
             st.header('Your competitors:')
             st.dataframe(session_state.generated)
 
-#             if st.button(label='Reset'):
-#                 session_state.analysis_running = False
-#                 st.experimental_rerun()
-
-        if analysis_running:
             with st.form(key='content_brief'):
                 competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", 
                                                      options=session_state.generated.iloc[:,0])
