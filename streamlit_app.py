@@ -94,7 +94,7 @@ def main():
         if st.button(label='Reset'):
             session_state.analysis_running = False
             st.experimental_rerun()
-            break
+        break
        
 if __name__ == "__main__":
     main()
