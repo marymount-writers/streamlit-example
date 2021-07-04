@@ -81,7 +81,7 @@ def main():
         session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
     
     ### GENERATE COMPETITORS ###
-    competitors = pd.DataFrame()
+    competitors = pd.DataFrame(columns=['Competitor','Similarity','Channels','Target Keywords'])
     if session_state.pages == 'Generate Competitors':
         if st.button('Generate Competitor Analysis'):
             session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
