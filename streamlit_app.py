@@ -9,7 +9,6 @@ import time
 import os
 import SessionState
 
-@st.cache(suppress_st_warning=True)
 def get_session_state(rando):
     session_state = SessionState.get(random_number=random.random(), nsamples='', generate_competitors=pd.DataFrame())
     return session_state
