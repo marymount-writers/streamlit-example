@@ -4,7 +4,7 @@ import math
 import pandas as pd
 import numpy as np
 import streamlit as st
-from streamlit.ScriptRunner import RerunException
+from st import RerunException
 import random
 import os
 import SessionState
