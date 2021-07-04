@@ -93,8 +93,7 @@ def main():
             competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", 
                                                  options=competitors.iloc[:,0])
             submit_competitors = st.form_submit_button(label='Save Competitors')
-            if submit_competitors:
-                st.write('You have saved: {}'.format(competitors_selected))
+            st.write('You have saved: {}'.format(competitors_selected))
                     
     ### GENERATE CONTENT BRIEF ###
     if session_state.pages == 'Generate Content Brief':
