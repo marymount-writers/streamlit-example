@@ -1,4 +1,5 @@
 from collections import namedtuple
+from streamlit.ScriptRunner import RerunException
 import altair as alt
 import math
 import pandas as pd
@@ -92,7 +93,7 @@ def main():
                 chart = st.line_chart(data)
                 
         if st.button(label='Reset'):
-            session_state.analysis_running = False
+            raise RerunException
        
 if __name__ == "__main__":
     main()
