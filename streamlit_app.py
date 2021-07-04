@@ -4,7 +4,6 @@ import math
 import pandas as pd
 import numpy as np
 import streamlit as st
-from st import RerunException
 import random
 import os
 import SessionState
@@ -93,7 +92,7 @@ def main():
                 chart = st.line_chart(data)
                 
         if st.button(label='Reset'):
-            raise RerunException
+            st.experimental_rerun()
        
 if __name__ == "__main__":
     main()
