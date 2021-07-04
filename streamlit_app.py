@@ -85,14 +85,13 @@ def main():
             session_state.analysis_running = True
             session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
             competitors_df = session_state.generated
-            print(competitors_df)
 #             if st.button(label='Reset'):
 #                 session_state.analysis_running = False
 #                 st.experimental_rerun()
 
         if session_state.analysis_running:
             st.header('Your competitors:')
-            st.dataframe(session_state.generated)
+            st.dataframe(competitors_df)
             with st.form(key='content_brief'):
                 competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", 
                                                      options=competitors_df.iloc[:,0])
