@@ -78,7 +78,7 @@ def main():
         session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
         st.header('Your competitor(s):')
         st.dataframe(session_state.generated)
-        session_state.competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", options=session_state.generated.iloc[:,0])
+        competitors_selected = st.multiselect(label="Choose the competitor(s) for content brief generation: ", options=session_state.generated.iloc[:,0])
        
 if __name__ == "__main__":
     main()
