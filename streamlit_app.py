@@ -54,6 +54,10 @@ def main():
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
     
+    with st.form(key='my_form'):
+        text_input = st.text_input(label='Enter your name')
+        submit_button = st.form_submit_button(label='Submit')
+    
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Configuration")
     session_state.nsamples = st.sidebar.slider("Number of Competitors to Analyse: ", 1, v_nsamples, 1)
