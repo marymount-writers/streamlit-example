@@ -149,18 +149,27 @@ def main():
         avg_s = pd.DataFrame(columns=['Score','Sentiment','Competitor'])
         avg_s = avg_s.append(pd.DataFrame(zip(avg_pos,['Positive']*len(df_comps),df_comps),columns=['Score','Sentiment','Competitor']))
         avg_s = avg_s.append(pd.DataFrame(zip(avg_neg,['Negative']*len(df_comps),df_comps),columns=['Score','Sentiment','Competitor']))
+
+        range_s = pd.DataFrame(columns=['Score','Sentiment','Competitor'])
+        range_s = range_s.append(pd.DataFrame(zip(range_pos,['Positive']*len(df_comps),df_comps),columns=['Score','Sentiment','Competitor']))
+        range_s = range_s.append(pd.DataFrame(zip(range_neg,['Negative']*len(df_comps),df_comps),columns=['Score','Sentiment','Competitor']))
         
-        sentiments = ['Positive Sentiment','Negative Sentiment']
-        
-        c = alt.Chart(avg_s,width=20*len(df_comps)).mark_bar().encode(
-            x=X('Sentiment',axis=False),
+        avg_c = alt.Chart(avg_s,width=20*len(df_comps)).mark_bar().encode(
+            x='Sentiment',
             y='Score',
             color='Sentiment',
             column='Competitor'
         )
         
-#         st.dataframe(avg_s)
-        st.altair_chart(c)
+        range_c = alt.Chart(range_s,width=20*len(df_comps)).mark_bar().encode(
+            x='Sentiment',
+            y='Score',
+            color='Sentiment',
+            column='Competitor'
+        )
+
+        st.altair_chart(avg_c)
+        st.altair_chart(range_c)
 
 if __name__ == "__main__":
     main()
