@@ -55,6 +55,7 @@ def main():
     display_app_header(main_txt,sub_txt,is_sidebar = False)
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
+    df_tsne = pd.read_csv('data/fin_tsne.csv',index_col=0)
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Menu")
@@ -78,7 +79,12 @@ def main():
     
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Semantic Fingerprinting':
-        sub_txt = "Semantic Fingerprinting"
+        st.text("Semantic Fingerprinting")
+
+        fig = plt.figure(1, figsize=(12,8))
+        for i in range(5):
+          plt.scatter(df_tsne[df_tsne.competitor==i]['Dim1'],
+                      df_tsne[df_tsne.competitor==i]['Dim2'],label=i,marker='.',s=1)
                     
     ### GENERATE CONTENT BRIEF ###
     if session_state.pages == 'Topical Matrix Analysis':
