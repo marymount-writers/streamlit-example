@@ -9,6 +9,7 @@ import time
 import os
 import SessionState
 import nltk
+from nltk.sentiment import SentimentIntensityAnalyzer
 nltk.download(["stopwords"])
 stopwords = nltk.corpus.stopwords.words("english")
 
@@ -116,8 +117,15 @@ def main():
     if session_state.pages == 'Sentiment Heatmapping':
         sub_txt = "Sentiment Heatmapping"
         display_app_header(main_txt,sub_txt,is_sidebar = False)
-        
-        compSelect = st.multiselect('Select competitors to view:',options=df_comps,default=df_comps)
+                
+        sia = SentimentIntensityAnalyzer()
+        pos = []
+        neg = []
+        neu = []
+        for i, article in enumerate(df_words.text):
+          pos.append(sia.polarity_scores(' '.join(article))['pos'])
+          neg.append(sia.polarity_scores(' '.join(article))['neg'])
+          neu.append(sia.polarity_scores(' '.join(article))['neu'])
         
         avg_pos = []
         avg_neg = []
