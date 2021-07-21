@@ -10,7 +10,7 @@ import os
 import SessionState
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
-nltk.download(["stopwords"])
+nltk.download(["stopwords","vader_lexicon"])
 stopwords = nltk.corpus.stopwords.words("english")
 
 def get_session_state(rando):
