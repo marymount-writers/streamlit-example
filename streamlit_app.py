@@ -81,7 +81,7 @@ def main():
     if session_state.pages == 'Semantic Fingerprinting':
         st.text("Semantic Fingerprinting")
         
-        c = alt.Chart(df_tsne, height=120).mark_circle().encode(x='Dim1', y='Dim2', color='competitor', tooltip=['competitor','tokens'])
+        c = alt.Chart(df_tsne, height=600).mark_circle().encode(x='Dim1', y='Dim2', color='competitor', tooltip=['competitor','tokens'])
         st.altair_chart(c, use_container_width=True)
                     
     ### GENERATE CONTENT BRIEF ###
