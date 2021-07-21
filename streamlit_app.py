@@ -150,12 +150,14 @@ def main():
         range_s = pd.DataFrame(zip(range_pos,range_neg,df_comps),columns=['Positive Sentiment','Negative Sentiment','Competitor'])
         sentiments = ['Positive Sentiment','Negative Sentiment']
         
-        st.altair_chart(avg_s).mark_bar().encode(
+        c = alt.Chart(avg_s).mark_bar().encode(
             x='competitor',
             y='sentiments',
             color='sentiments',
             column='competitor'
         )
+        
+        st.altair_chart(c, use_container_width=True)
 
 if __name__ == "__main__":
     main()
