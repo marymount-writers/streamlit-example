@@ -8,6 +8,9 @@ import random
 import time
 import os
 import SessionState
+import nltk
+nltk.download(["stopwords"])
+stopwords = nltk.corpus.stopwords.words("english")
 
 def get_session_state(rando):
     session_state = SessionState.get(random_number=random.random(), nsamples='', 
