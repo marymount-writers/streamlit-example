@@ -150,7 +150,6 @@ def main():
         avg_s.append(zip(avg_pos,['Positive'*len(df_comps)],df_comps))
         avg_s.append(zip(avg_neg,['Negative'*len(df_comps)],df_comps))
         
-        range_s = pd.DataFrame(zip(range_pos,range_neg,df_comps),columns=['Positive Sentiment','Negative Sentiment','Competitor'])
         sentiments = ['Positive Sentiment','Negative Sentiment']
         
         c = alt.Chart(avg_s).mark_bar().encode(
