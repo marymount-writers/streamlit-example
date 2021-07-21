@@ -154,19 +154,18 @@ def main():
         range_s = range_s.append(pd.DataFrame(zip(range_pos,['Positive']*len(df_comps),df_comps),columns=['Score','Sentiment','Competitor']))
         range_s = range_s.append(pd.DataFrame(zip(range_neg,['Negative']*len(df_comps),df_comps),columns=['Score','Sentiment','Competitor']))
         
-        avg_c = alt.Chart(avg_s,width=20*len(df_comps)).mark_bar().encode(
+        avg_c = alt.Chart(avg_s,width=20*len(df_comps),title='Average Sentiment Scores').mark_bar().encode(
             x='Sentiment',
             y='Score',
             color='Sentiment',
             column='Competitor'
         )
         
-        range_c = alt.Chart(range_s,width=20*len(df_comps)).mark_bar().encode(
+        range_c = alt.Chart(range_s,width=20*len(df_comps),title='Range of Sentiment Scores').mark_bar().encode(
             x='Sentiment',
             y='Score',
             color='Sentiment',
-            column='Competitor',
-            title='Range of Sentiment Scores'
+            column='Competitor'
         )
 
         st.altair_chart(avg_c)
