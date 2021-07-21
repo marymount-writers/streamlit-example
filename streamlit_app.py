@@ -152,7 +152,7 @@ def main():
         
         sentiments = ['Positive Sentiment','Negative Sentiment']
         
-        c = alt.Chart(avg_s).mark_bar().encode(
+        c = alt.Chart(avg_s).mark_bar(width=600).encode(
             x='Sentiment',
             y='Score',
             color='Sentiment',
