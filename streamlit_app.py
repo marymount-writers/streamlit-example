@@ -81,8 +81,8 @@ def main():
     if session_state.pages == 'Semantic Fingerprinting':
         st.text("Semantic Fingerprinting")
         
-        c = alt.Chart(df_tsne).mark_circle().encode(x='Dim1', y='Dim2', color='competitor', tooltip=['competitor','tokens'])
-        st.altair_chart(c, use_container_width=True, height=120)
+        c = alt.Chart(df_tsne, height=120).mark_circle().encode(x='Dim1', y='Dim2', color='competitor', tooltip=['competitor','tokens'])
+        st.altair_chart(c, use_container_width=True)
                     
     ### GENERATE CONTENT BRIEF ###
     if session_state.pages == 'Topical Matrix Analysis':
