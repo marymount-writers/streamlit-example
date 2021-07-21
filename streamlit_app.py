@@ -81,6 +81,7 @@ def main():
     
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Semantic Fingerprinting':
+        sub_txt = "Semantic Fingerprinting"
         st.text("Semantic Fingerprinting")
         compSelect = st.multiselect('Select competitors to view:',options=fin_comps)
         c = alt.Chart(df_tsne, height=600).mark_circle(size=10).encode(x='Dim1', y='Dim2',
