@@ -126,7 +126,8 @@ def main():
           pos.append(sia.polarity_scores(' '.join(article))['pos'])
           neg.append(sia.polarity_scores(' '.join(article))['neg'])
           neu.append(sia.polarity_scores(' '.join(article))['neu'])
-          st.write(article)
+          st.write(' '.join(article))
+          st.write(sia.polarity_scores(' '.join(article))['pos'])
         
         st.write(df_words.text)
         st.write(pos,neg)
