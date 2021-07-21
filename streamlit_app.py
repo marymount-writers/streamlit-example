@@ -146,7 +146,10 @@ def main():
           avg_neu.append(np.average(neu[comp_range[i]:comp_range[i+1]]))
           range_neu.append(np.max(neu[comp_range[i]:comp_range[i+1]])-np.min(neu[comp_range[i]:comp_range[i+1]]))
         
-        avg_s = pd.DataFrame(zip(avg_pos,avg_neg,df_comps),columns=['Positive Sentiment','Negative Sentiment','Competitor'])
+        avg_s = pd.DataFrame(columns=['Score','Sentiment','Competitor'])
+        avg_s.append(zip(avg_pos,['Positive'*len(df_comps)],df_comps))
+        avg_s.append(zip(avg_neg,['Negative'*len(df_comps)],df_comps))
+        
         range_s = pd.DataFrame(zip(range_pos,range_neg,df_comps),columns=['Positive Sentiment','Negative Sentiment','Competitor'])
         sentiments = ['Positive Sentiment','Negative Sentiment']
         
