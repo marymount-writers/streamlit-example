@@ -59,8 +59,7 @@ def main():
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Menu")
-    session_state.pages = st.sidebar.radio("Navigate Calibre", options=['Competitor Profile','Semantic Fingerprinting',
-                                                                        'Topical Matrix Analysis','Sentiment Heatmapping'])
+    session_state.pages = st.sidebar.radio("Navigate Calibre", options=['Competitor Profile','Semantic Fingerprinting','Sentiment Heatmapping'])
     display_side_panel_header("Configuration")
     session_state.nsamples = st.sidebar.slider("Number of Competitors to Analyse: ", 1, v_nsamples, 1)
     display_side_panel_header("Audience Profile")
@@ -76,7 +75,7 @@ def main():
 
         session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
         st.header('Your competitors:')
-        st.dataframe(session_state.generated)
+        st.dataframe(session_state.generated,use_container_width=True)
     
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Semantic Fingerprinting':
