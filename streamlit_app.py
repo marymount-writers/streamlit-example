@@ -91,9 +91,9 @@ def main():
         st.altair_chart(c, use_container_width=True)
                     
     ### GENERATE CONTENT BRIEF ###
-    if session_state.pages == 'Topical Matrix Analysis':
-        sub_txt = "Topical Matrix Analysis"
-        display_app_header(main_txt,sub_txt,is_sidebar = False)        
+#     if session_state.pages == 'Topical Matrix Analysis':
+#         sub_txt = "Topical Matrix Analysis"
+#         display_app_header(main_txt,sub_txt,is_sidebar = False)        
         
     ### SENTIMENT HEATMAPPING ###
     if session_state.pages == 'Sentiment Heatmapping':
