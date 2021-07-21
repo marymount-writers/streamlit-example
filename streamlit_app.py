@@ -126,11 +126,6 @@ def main():
           pos.append(sia.polarity_scores(article)['pos'])
           neg.append(sia.polarity_scores(article)['neg'])
           neu.append(sia.polarity_scores(article)['neu'])
-#           st.write(' '.join(article))
-#           st.write(sia.polarity_scores(' '.join(article))['pos'])
-        
-        st.write(df_words.text)
-        st.write(pos,neg)
         
         avg_pos = []
         avg_neg = []
@@ -151,7 +146,16 @@ def main():
           avg_neu.append(np.average(neu[comp_range[i]:comp_range[i+1]]))
           range_neu.append(np.max(neu[comp_range[i]:comp_range[i+1]])-np.min(neu[comp_range[i]:comp_range[i+1]]))
         
-        st.write(avg_pos,avg_neu)
+        avg_s = pd.DataFrame(zip(avg_pos,avg_neg,df_comps),columns=['Positive Sentiment','Negative Sentiment','Competitor'])
+        range_s = pd.DataFrame(zip(range_pos,range_neg,df_comps),columns=['Positive Sentiment','Negative Sentiment','Competitor'])
+        sentiments = ['Positive Sentiment','Negative Sentiment']
         
+        st.altair_chart(avg_s).mark_bar().encode(
+            x='competitor',
+            y='sentiments',
+            color='sentiments',
+            column='competitor'
+        )
+
 if __name__ == "__main__":
     main()
