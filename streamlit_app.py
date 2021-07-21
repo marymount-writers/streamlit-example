@@ -82,10 +82,12 @@ def main():
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Semantic Fingerprinting':
         st.text("Semantic Fingerprinting")
-        
+        compSelect = st.multiselect('Select competitors to view:',options=fin_comps)
         c = alt.Chart(df_tsne, height=600).mark_circle(size=10).encode(x='Dim1', y='Dim2',
                                                                 color='competitor', 
-                                                                tooltip=['competitor','tokens'])
+                                                                tooltip=['competitor','tokens']).transform_filter(
+            alt.FieldOneOfPredicate(field='competitor', oneOf=[compSelect])
+            
         st.altair_chart(c, use_container_width=True)
                     
     ### GENERATE CONTENT BRIEF ###
