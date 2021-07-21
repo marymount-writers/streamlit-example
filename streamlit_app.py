@@ -56,6 +56,7 @@ def main():
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
     df_tsne = pd.read_csv('data/fin_tsne.csv',index_col=0)
+    df_tsne = df_tsne.competitor.astype('object')
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Menu")
@@ -82,7 +83,7 @@ def main():
         st.text("Semantic Fingerprinting")
         
         c = alt.Chart(df_tsne, height=600).mark_circle().encode(x='Dim1', y='Dim2', 
-                                                                color=alt.Color('competitor', scale=alt.Scale(scheme='dark2')), 
+                                                                color='competitor', 
                                                                 tooltip=['competitor','tokens'])
         st.altair_chart(c, use_container_width=True)
                     
