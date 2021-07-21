@@ -84,7 +84,7 @@ def main():
     if session_state.pages == 'Semantic Fingerprinting':
         sub_txt = "Semantic Fingerprinting"
         display_app_header(main_txt,sub_txt,is_sidebar = False)
-        compSelect = st.multiselect('Select competitors to view:',options=fin_comps)
+        compSelect = st.multiselect('Select competitors to view:',options=fin_comps,default=fin_comps)
         c = alt.Chart(df_tsne, height=600).mark_circle(size=10).encode(x='Dim1', y='Dim2',
                                                                 color='competitor', 
                                                                 tooltip=['competitor','tokens']).transform_filter(
