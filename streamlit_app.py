@@ -127,6 +127,8 @@ def main():
           neg.append(sia.polarity_scores(' '.join(article))['neg'])
           neu.append(sia.polarity_scores(' '.join(article))['neu'])
         
+        st.write(pos,neg)
+        
         avg_pos = []
         avg_neg = []
         avg_neu = []
