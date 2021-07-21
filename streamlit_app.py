@@ -50,8 +50,7 @@ def main():
     session_state = get_session_state(rando)
     v_nsamples = int(os.getenv('V_NSAMPLES', 10)) # Number of competitors to generate
     sep = '<|endoftext|>'
-    main_txt = """Calibre"""
-    sub_txt = "Competitor Analysis"
+    main_txt = """📝 Calibre"""
     display_app_header(main_txt,sub_txt,is_sidebar = False)
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
@@ -68,6 +67,7 @@ def main():
     
     ### COMPETITOR PROFILE ###
     if session_state.pages == 'Competitor Profile':
+        sub_txt = "Competitor Profile"
         session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
         session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
 
@@ -77,8 +77,7 @@ def main():
     
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Semantic Fingerprinting':
-        st.text("Semantic Fingerprinting")
-
+        sub_txt = "Semantic Fingerprinting"
                     
     ### GENERATE CONTENT BRIEF ###
     if session_state.pages == 'Topical Matrix Analysis':
