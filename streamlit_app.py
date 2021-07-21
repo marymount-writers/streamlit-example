@@ -75,8 +75,10 @@ def main():
     session_state.ind_type = st.sidebar.radio("Select Industry", options=['Finance','Aesthetics'])
     if session_state.ind_type == 'Finance':
         df_tsne = fin_tsne
+        df_comps = fin_comps
     else:
         df_tsne = aes_tsne
+        df_comps = aes_comps
     
     ### COMPETITOR PROFILE ###
     if session_state.pages == 'Competitor Profile':
@@ -93,7 +95,7 @@ def main():
     if session_state.pages == 'Semantic Fingerprinting':
         sub_txt = "Semantic Fingerprinting"
         display_app_header(main_txt,sub_txt,is_sidebar = False)
-        compSelect = st.multiselect('Select competitors to view:',options=fin_comps,default=fin_comps)
+        compSelect = st.multiselect('Select competitors to view:',options=df_comps,default=df_comps)
         c = alt.Chart(df_tsne, height=600).mark_circle(size=10).encode(x='Dim1', y='Dim2',
                                                                 color='competitor', 
                                                                 tooltip=['competitor','tokens']).transform_filter(
