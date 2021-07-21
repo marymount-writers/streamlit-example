@@ -56,7 +56,7 @@ def main():
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
     df_tsne = pd.read_csv('data/fin_tsne.csv',index_col=0)
-    df_tsne = df_tsne.competitor.astype(str)
+    df_tsne.competitor = df_tsne.competitor.astype(str)
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Menu")
