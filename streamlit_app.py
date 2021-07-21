@@ -162,7 +162,7 @@ def main():
         )
         
         range_c = alt.Chart(range_s,width=20*len(df_comps),title='Range of Sentiment Scores').mark_bar().encode(
-            x=alt.X('Sentiment',axis=False),
+            x=alt.X('Sentiment',axis=alt.Axis(labels=False)),
             y='Score',
             color='Sentiment',
             column='Competitor'
