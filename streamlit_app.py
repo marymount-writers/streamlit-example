@@ -57,8 +57,11 @@ def main():
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
     fin_comps = ['Fire Finance','Wallet Philosophy','Vision Advisory']
-    df_tsne = pd.read_csv('data/fin_tsne.csv',index_col=0)
-    df_tsne.competitor = [fin_comps[i] for i in df_tsne.competitor]
+    aes_comps = ['Freia Medical','Halley Medical Aesthetics','Self Medical Aesthetics','The Aesthetics Centre','The Clifford Strategy']
+    fin_tsne = pd.read_csv('data/fin_tsne.csv',index_col=0)
+    fin_tsne.competitor = [fin_comps[i] for i in fin_tsne.competitor]
+    aes_tsne = pd.read_csv('data/aes_tsne.csv',index_col=0)
+    aes_tsne.competitor = [aes_comps[i] for i in aes_tsne.competitor]
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Menu")
@@ -68,6 +71,12 @@ def main():
     display_side_panel_header("Audience Profile")
     session_state.audience_age = st.sidebar.slider("Audience Age Range: ", 16, 65, (26, 30))
     session_state.audience_awareness = st.sidebar.selectbox("Audience Awareness: ", options=awareness_stages)
+    display_side_panel_header("Industry")
+    session_state.ind_type = st.sidebar.radio("Select Industry", options=['Finance','Aesthetics'])
+    if session_state.ind_type == 'Finance':
+        df_tsne = fin_tsne
+    else:
+        df_tsne = aes_tsne
     
     ### COMPETITOR PROFILE ###
     if session_state.pages == 'Competitor Profile':
