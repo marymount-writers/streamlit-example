@@ -45,7 +45,7 @@ def generate_competitors(domain,industry,nsamples):
     return dataframe
 
 def main():
-    st.set_page_config(page_title='📝 Calibre') #layout='wide', initial_sidebar_state='auto'
+    st.set_page_config(page_title='📝 Calibre',layout='wide')
     rando = cacherando()
     session_state = get_session_state(rando)
     v_nsamples = int(os.getenv('V_NSAMPLES', 10)) # Number of competitors to generate
