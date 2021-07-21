@@ -51,6 +51,7 @@ def main():
     v_nsamples = int(os.getenv('V_NSAMPLES', 10)) # Number of competitors to generate
     sep = '<|endoftext|>'
     main_txt = """📝 Calibre"""
+    sub_txt = "Competitor Profile"
     display_app_header(main_txt,sub_txt,is_sidebar = False)
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
