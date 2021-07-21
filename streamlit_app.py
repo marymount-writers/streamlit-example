@@ -123,11 +123,11 @@ def main():
         neg = []
         neu = []
         for i, article in enumerate(df_words.text):
-          pos.append(sia.polarity_scores(' '.join(article))['pos'])
-          neg.append(sia.polarity_scores(' '.join(article))['neg'])
-          neu.append(sia.polarity_scores(' '.join(article))['neu'])
-          st.write(' '.join(article))
-          st.write(sia.polarity_scores(' '.join(article))['pos'])
+          pos.append(sia.polarity_scores(article)['pos'])
+          neg.append(sia.polarity_scores(article)['neg'])
+          neu.append(sia.polarity_scores(article)['neu'])
+#           st.write(' '.join(article))
+#           st.write(sia.polarity_scores(' '.join(article))['pos'])
         
         st.write(df_words.text)
         st.write(pos,neg)
