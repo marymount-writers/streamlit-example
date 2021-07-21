@@ -127,6 +127,7 @@ def main():
           neg.append(sia.polarity_scores(' '.join(article))['neg'])
           neu.append(sia.polarity_scores(' '.join(article))['neu'])
         
+        st.write(df_words.text)
         st.write(pos,neg)
         
         avg_pos = []
