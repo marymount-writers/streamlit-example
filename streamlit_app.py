@@ -153,10 +153,10 @@ def main():
         sentiments = ['Positive Sentiment','Negative Sentiment']
         
         c = alt.Chart(avg_s).mark_bar().encode(
-            x='competitor',
-            y='sentiments',
-            color='sentiments',
-            column='competitor'
+            x='Competitor',
+            y='Score',
+            color='Sentiment',
+            column='Competitor'
         )
         
         st.altair_chart(c, use_container_width=True)
