@@ -51,8 +51,6 @@ def main():
     v_nsamples = int(os.getenv('V_NSAMPLES', 10)) # Number of competitors to generate
     sep = '<|endoftext|>'
     main_txt = """📝 Calibre"""
-    sub_txt = "Competitor Profile"
-    display_app_header(main_txt,sub_txt,is_sidebar = False)
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
     fin_comps = ['Fire Finance','Wallet Philosophy','Vision Advisory']
@@ -84,7 +82,6 @@ def main():
     if session_state.pages == 'Semantic Fingerprinting':
         sub_txt = "Semantic Fingerprinting"
         display_app_header(main_txt,sub_txt,is_sidebar = False)
-        st.text("Semantic Fingerprinting")
         compSelect = st.multiselect('Select competitors to view:',options=fin_comps)
         c = alt.Chart(df_tsne, height=600).mark_circle(size=10).encode(x='Dim1', y='Dim2',
                                                                 color='competitor', 
@@ -95,11 +92,13 @@ def main():
                     
     ### GENERATE CONTENT BRIEF ###
     if session_state.pages == 'Topical Matrix Analysis':
-        st.text("Topical Matrix Analysis")
+        sub_txt = "Topical Matrix Analysis"
+        display_app_header(main_txt,sub_txt,is_sidebar = False)        
         
     ### SENTIMENT HEATMAPPING ###
     if session_state.pages == 'Sentiment Heatmapping':
-        st.text("Sentiment Heatmapping")
-       
+        sub_txt = "Sentiment Heatmapping"
+        display_app_header(main_txt,sub_txt,is_sidebar = False)
+        
 if __name__ == "__main__":
     main()
