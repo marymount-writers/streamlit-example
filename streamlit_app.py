@@ -152,7 +152,7 @@ def main():
         
         sentiments = ['Positive Sentiment','Negative Sentiment']
         
-        c = alt.Chart(avg_s,width=200).mark_bar().encode(
+        c = alt.Chart(avg_s).mark_bar().encode(
             x='Sentiment',
             y='Score',
             color='Sentiment',
@@ -160,7 +160,7 @@ def main():
         )
         
         st.dataframe(avg_s)
-        st.altair_chart(c, use_container_width=True)
+        st.altair_chart(c)
 
 if __name__ == "__main__":
     main()
