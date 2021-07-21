@@ -62,6 +62,8 @@ def main():
     fin_tsne.competitor = [fin_comps[i] for i in fin_tsne.competitor]
     aes_tsne = pd.read_csv('data/aes_tsne.csv',index_col=0)
     aes_tsne.competitor = [aes_comps[i] for i in aes_tsne.competitor]
+    fin_words = pd.read_csv('data/fin_words.csv',index_col=0)
+    aes_words = pd.read_csv('data/aes_words.csv',index_col=0)
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Menu")
@@ -76,9 +78,11 @@ def main():
     if session_state.ind_type == 'Finance':
         df_tsne = fin_tsne
         df_comps = fin_comps
+        df_words = fin_words
     else:
         df_tsne = aes_tsne
         df_comps = aes_comps
+        df_words = aes_words
     
     ### COMPETITOR PROFILE ###
     if session_state.pages == 'Competitor Profile':
@@ -95,12 +99,12 @@ def main():
     if session_state.pages == 'Semantic Fingerprinting':
         sub_txt = "Semantic Fingerprinting"
         display_app_header(main_txt,sub_txt,is_sidebar = False)
+        
         compSelect = st.multiselect('Select competitors to view:',options=df_comps,default=df_comps)
         c = alt.Chart(df_tsne, height=600).mark_circle(size=10).encode(x='Dim1', y='Dim2',
                                                                 color='competitor', 
                                                                 tooltip=['competitor','tokens']).transform_filter(
             alt.FieldOneOfPredicate(field='competitor', oneOf=compSelect))
-            
         st.altair_chart(c, use_container_width=True)
                     
     ### GENERATE CONTENT BRIEF ###
@@ -112,6 +116,12 @@ def main():
     if session_state.pages == 'Sentiment Heatmapping':
         sub_txt = "Sentiment Heatmapping"
         display_app_header(main_txt,sub_txt,is_sidebar = False)
+        
+        words = []
+        for i in range(len(df_words.text)):
+          for j in range(len(df_words.text[i])):
+            words.extend([w for w in df_words.text[i][j].split() if w not in stopwords])
+        st.write('This competitor has published {} articles, with an average word count of {}.'.format(len(df_words),len(words)/len(df_words))
         
 if __name__ == "__main__":
     main()
