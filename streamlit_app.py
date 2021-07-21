@@ -152,8 +152,8 @@ def main():
         
         sentiments = ['Positive Sentiment','Negative Sentiment']
         
-        c = alt.Chart(avg_s,width=100).mark_bar().encode(
-            x='Sentiment',
+        c = alt.Chart(avg_s,width=20*len(df_comps)).mark_bar().encode(
+#             x='Sentiment',
             y='Score',
             color='Sentiment',
             column='Competitor'
