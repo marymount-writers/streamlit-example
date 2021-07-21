@@ -160,7 +160,7 @@ def main():
             color='Sentiment',
             column='Competitor'
         )
-        avg_c = chart.configure_title(fontSize=20, offset=5, orient='top', anchor='middle')
+        avg_c = avg_c.configure_title(fontSize=20, offset=5, orient='top', anchor='middle')
         
         range_c = alt.Chart(range_s,width=20*len(df_comps),title='Range of Sentiment Scores').mark_bar().encode(
             x='Sentiment',
@@ -168,7 +168,7 @@ def main():
             color='Sentiment',
             column='Competitor'
         )
-        range_c = chart.configure_title(fontSize=20, offset=5, orient='top', anchor='middle')
+        range_c = range_c.configure_title(fontSize=20, offset=5, orient='top', anchor='middle')
 
         st.altair_chart(avg_c)
         st.altair_chart(range_c)
