@@ -80,11 +80,9 @@ def main():
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Semantic Fingerprinting':
         st.text("Semantic Fingerprinting")
-
-        fig = plt.figure(1, figsize=(12,8))
-        for i in range(5):
-          plt.scatter(df_tsne[df_tsne.competitor==i]['Dim1'],
-                      df_tsne[df_tsne.competitor==i]['Dim2'],label=i,marker='.',s=1)
+        
+        c = alt.Chart(df_tsne).mark_circle().encode(x='Dim1', y='Dim2', size=0.1, color='competitor', tooltip=['competitor','tokens'])
+        st.altair_chart(c, use_container_width=True)
                     
     ### GENERATE CONTENT BRIEF ###
     if session_state.pages == 'Topical Matrix Analysis':
