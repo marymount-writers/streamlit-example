@@ -159,6 +159,7 @@ def main():
             column='Competitor'
         )
         
+        st.dataframe(avg_s)
         st.altair_chart(c, use_container_width=True)
 
 if __name__ == "__main__":
