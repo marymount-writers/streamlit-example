@@ -164,8 +164,8 @@ def main():
         range_c = alt.Chart(range_s,width=20*len(df_comps),title='Range of Sentiment Scores').mark_bar().encode(
             x='Sentiment',
             y='Score',
-            color=X('Sentiment',axis=alt.Axis(labels=False)),
-            column=Y('Competitor',axis=alt.Axis(labels=False))
+            color='Sentiment',
+            column='Competitor'
         )
 
         st.altair_chart(avg_c)
