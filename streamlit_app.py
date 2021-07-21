@@ -121,7 +121,7 @@ def main():
         for i in range(len(df_words.text)):
           for j in range(len(df_words.text[i])):
             words.extend([w for w in df_words.text[i][j].split() if w not in stopwords])
-        st.write('This competitor has published {} articles, with an average word count of {}.'.format(len(df_words),len(words)/len(df_words))
+        st.write('This competitor has published {} articles, with an average word count of {}.'.format(len(df_words),len(words)/len(df_words)))
         
 if __name__ == "__main__":
     main()
