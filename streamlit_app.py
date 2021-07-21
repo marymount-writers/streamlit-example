@@ -72,6 +72,7 @@ def main():
     ### COMPETITOR PROFILE ###
     if session_state.pages == 'Competitor Profile':
         sub_txt = "Competitor Profile"
+        display_app_header(main_txt,sub_txt,is_sidebar = False)
         session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
         session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
 
@@ -82,6 +83,7 @@ def main():
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Semantic Fingerprinting':
         sub_txt = "Semantic Fingerprinting"
+        display_app_header(main_txt,sub_txt,is_sidebar = False)
         st.text("Semantic Fingerprinting")
         compSelect = st.multiselect('Select competitors to view:',options=fin_comps)
         c = alt.Chart(df_tsne, height=600).mark_circle(size=10).encode(x='Dim1', y='Dim2',
