@@ -55,8 +55,9 @@ def main():
     display_app_header(main_txt,sub_txt,is_sidebar = False)
     awareness_stages = ['Unaware of solution','Aware of solution','Interested in product offered',
                         'Considering purchase','Intending to purchase','Existing product user']
+    fin_comps = ['Fire Finance','Wallet Philosophy','Vision Advisory']
     df_tsne = pd.read_csv('data/fin_tsne.csv',index_col=0)
-    df_tsne.competitor = df_tsne.competitor.astype(str)
+    df_tsne.competitor = [fin_comps][df_tsne.competitor]
     
     ### SIDEBAR CONTENT ###
     display_side_panel_header("Menu")
