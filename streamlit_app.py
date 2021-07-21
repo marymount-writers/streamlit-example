@@ -117,11 +117,28 @@ def main():
         sub_txt = "Sentiment Heatmapping"
         display_app_header(main_txt,sub_txt,is_sidebar = False)
         
-        words = []
-        for i in range(len(df_words.text)):
-          for j in range(len(df_words.text[i])):
-            words.extend([w for w in df_words.text[i][j].split() if w not in stopwords])
-        st.write('This competitor has published {} articles, with an average word count of {}.'.format(len(df_words),len(words)/len(df_words)))
+        compSelect = st.multiselect('Select competitors to view:',options=df_comps,default=df_comps)
+        
+        avg_pos = []
+        avg_neg = []
+        avg_neu = []
+        range_pos = []
+        range_neg = []
+        range_neu = []
+        if session_state.ind_type == 'Finance':
+            comp_range = [0,5,12,22]
+        else:
+            comp_range = [0,25,50,58,83,108]
+
+        for i in range(len(df_comps)):
+          avg_pos.append(np.average(pos[comp_range[i]:comp_range[i+1]]))
+          range_pos.append(np.max(pos[comp_range[i]:comp_range[i+1]])-np.min(pos[comp_range[i]:comp_range[i+1]]))
+          avg_neg.append(np.average(neg[comp_range[i]:comp_range[i+1]]))
+          range_neg.append(np.max(neg[comp_range[i]:comp_range[i+1]])-np.min(neg[comp_range[i]:comp_range[i+1]]))
+          avg_neu.append(np.average(neu[comp_range[i]:comp_range[i+1]]))
+          range_neu.append(np.max(neu[comp_range[i]:comp_range[i+1]])-np.min(neu[comp_range[i]:comp_range[i+1]]))
+        
+        st.write(avg_pos,avg_neu)
         
 if __name__ == "__main__":
     main()
