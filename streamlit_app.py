@@ -75,7 +75,7 @@ def main():
 
         session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
         st.header('Your competitors:')
-        st.dataframe(session_state.generated,use_container_width=True)
+        st.dataframe(session_state.generated)
     
     ### GENERATE COMPETITORS ###
     if session_state.pages == 'Semantic Fingerprinting':
