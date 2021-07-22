@@ -90,8 +90,8 @@ def main():
     if session_state.pages == 'Competitor Profile':
         sub_txt = "Competitor Profile"
         display_app_header(main_txt,sub_txt,is_sidebar = False)
-        session_state.domain = st.text_input("Your Website Domain: ", value='https://marymountwriters.com').lower()
-        session_state.industry = st.text_input("Your Industry : ", value='Digital content marketing').lower()
+        session_state.domain = st.text_input("Your Website Domain: ", value='https://https://www.selfmedical.com.sg/').lower()
+        session_state.industry = st.text_input("Your Industry : ", value='Aesthetics').lower()
 
         session_state.generated = generate_competitors(session_state.domain,session_state.industry,session_state.nsamples)
         st.header('Your competitors:')
