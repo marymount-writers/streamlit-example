@@ -38,9 +38,10 @@ def display_side_panel_header(txt):
     
 def generate_competitors(domain,industry,nsamples):
     col = ['Competitor','Similarity','Channels','Target Keywords']
-    competitors = ['Union Square','Chernobyl Industries','Neverland','Crocodile Inc.','Yellow Tail','Lorem Ipsum','Elid.Net','Hannibal L.','Teriyaki','BKT Holdings']
+    competitors = ['Freia Medical','Halley Medical Aesthetics','Self Medical Aesthetics','The Aesthetics Centre','The Clifford Strategy',
+                  'Dr David Aesthetics','PLA Medical','Botox Centre','Singapore Clinic of Aesthetics','Plastic Hub']
     channels = ['Facebook','Instagram','Twitter','LinkedIn','Blog','MailChimp','Weibo']
-    keywords = ['Content Marketing','Copywriting','SEO','SEM','Marketing ROI','Marketing Agency']
+    keywords = ['Treatment','Botox','Injectables','Aesthetic','Clinic','Risks','Safety','Tolerance','Skincare','Hair','Facial','Mask','Acne']
     dataframe = pd.DataFrame(list(zip(competitors[:nsamples],
                                       np.random.randn(nsamples),
                                       [', '.join(np.random.choice(channels,3,replace=False)) for i in range(nsamples)],
