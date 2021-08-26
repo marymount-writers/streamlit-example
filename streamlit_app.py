@@ -62,7 +62,7 @@ def main():
     aes_comps = ['Freia Medical','Halley Medical Aesthetics','Self Medical Aesthetics','The Aesthetics Centre','The Clifford Strategy']
     fin_tsne = pd.read_csv('data/fin_tsne.csv',index_col=0)
     fin_tsne.competitor = [fin_comps[i] for i in fin_tsne.competitor]
-    aes_tsne = pd.read_csv('data/aes_tsne.csv',index_col=0)
+    aes_tsne = pd.read_csv('data/aes_tsne_2.csv',index_col=0)
     aes_tsne.competitor = [aes_comps[i] for i in aes_tsne.competitor]
     fin_words = pd.read_csv('data/fin_words.csv',index_col=0)
     aes_words = pd.read_csv('data/aes_words.csv',index_col=0)
